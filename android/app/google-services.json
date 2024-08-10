@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "922230103341",
+    "project_id": "bousmaha-academia",
+    "storage_bucket": "bousmaha-academia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922230103341:android:4e0ac156cc654058ae47a4",
+        "android_client_info": {
+          "package_name": "com.devlog.bousmaha_academy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOEN0a9mTXkLi133uBf-oaHMGK7-KgiUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

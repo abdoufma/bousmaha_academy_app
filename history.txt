@@ -1,0 +1,60 @@
+#V2
+INFO FOR DB;
+SELECT * FROM review LIMIT 2;
+INFO FOR DB;
+SELECT * FROM order LIMIT 2;
+UPDATE order SET anchorDate = time::format($this.order_date, "%Y-%m-%d");
+UPDATE order SET anchorDate = time::format($this.order_date, "%Y-%m-%d") WHERE discount != NONE;
+UPDATE order SET discount2 = 99 WHERE discount != NONE;
+SELECT * FROM order:['England', '2023-01-02T00:15:08.700326Z']
+INFO FOR TABLE order;
+UPDATE order SET discount2 = 99 WHERE discount != NONE;
+SELECT * FROM order WHERE discount != NONE;
+SELECT * FROM order WHERE discount != NONE LIMIT 1;
+UPDATE order:['England', '2023-01-02T00:15:08.700326Z'] SET discount2 = 99 ;
+LET $ORDERS = (SELECT * OMIT in, out, id FROM orders);
+SELECT count() FROM $ORDERS GROUP ALL;
+SELECT * FROM $ORDERS;
+LET $ORDERS = (SELECT * OMIT in, out, id FROM orders);
+LET $ORDERS = (SELECT *  FROM orders);
+LET $ORDERS = (SELECT * FROM orders ORDER BY order_date ASC);
+LET $ORDERS = (SELECT * FROM orders ORDER BY order_date ASC EXPLAIN FULL);
+SELECT * FROM orders ORDER BY order_date ASC EXPLAIN FULL;
+SELECT * FROM orders ORDER BY order_date DESC LIMIT 20 EXPLAIN FULL;
+DEFINE INDEX order_date_idx ON TABLE order COLUMNS order_date;
+INFO FOR TABLE order
+SELECT * FROM patients ORDER BY _date DESC LIMIT 20 EXPLAIN FULL;
+SELECT * FROM patients ORDER BY _date DESC LIMIT 1;
+SELECT * FROM patients LIMIT 1;
+SELECT * FROM patients LIMIT 1 EXPLAIN FULL;
+SELECT * FROM patients ORDER BY _date LIMIT 1 EXPLAIN FULL;
+INFO FOR TABLE patients;
+SELECT * FROM patients WHERE _date > '2024-04-01' LIMIT 1 EXPLAIN FULL;
+SELECT * FROM patients WHERE _date > 2024-04-01 AND _date < '2024-05-15' LIMIT 1 EXPLAIN FULL;
+SELECT * FROM patients WHERE _date > '2024-04-01' AND _date < '2024-05-15' LIMIT 1 EXPLAIN FULL;
+SELECT * FROM patients WHERE _date > '2024-04-01' AND _date < '2024-05-15' LIMIT 100 EXPLAIN FULL;
+SELECT * FROM patients ORDER BY _date LIMIT 1OO EXPLAIN FULL;
+SELECT * FROM patients ORDER BY _date DESC LIMIT 1OO EXPLAIN FULL;
+SELECT * FROM patients ORDER BY _date DESC LIMIT 1OO EXPLAIN;
+SELECT * FROM patients WHERE _date > '2024-04-01' AND _date < '2024-05-15' LIMIT 100 EXPLAIN FULL;
+SELECT * FROM patients WHERE _date > '2024-04-01'  LIMIT 100 EXPLAIN FULL;
+SELECT * FROM patients ORDER BY _date DESC LIMIT 1OO EXPLAIN;
+SELECT * FROM patients EXPLAIN;
+SELECT * FROM patients ORDER BY _date EXPLAIN;
+select * from appointments where status = "pending" AND service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ] FETCH type EXPLAIN FULL
+select * from appointments where (  status = "pending"  )  AND service = 'services:1712489760657vbtujbvee' AND  (  type = "appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_"  OR  type = "appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_"  ) FETCH type EXPLAIN FULL;
+INFO FOR TABLE appointments
+DEFINE INDEX service_index_appointments ON appointments FIELDS service
+select * from appointments where (  status = "pending"  )  AND service = 'services:1712489760657vbtujbvee' AND  (  type = "appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_"  OR  type = "appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_"  ) FETCH type EXPLAIN FULL;
+select * from appointments where status = "pending" AND service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ] FETCH type EXPLAIN FULL
+select * from appointments where status = "pending" AND (service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ]) FETCH type EXPLAIN FULL
+select * from appointments where status = "pending" OR (service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ]) FETCH type EXPLAIN FULL
+select * from appointments where status = "pending" OR (service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ])  EXPLAIN FULL
+select * from appointments where status = "pending" AND (service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ]) FETCH type EXPLAIN FULL
+select * from appointments where (  status = "pending"  )  AND service = 'services:1712489760657vbtujbvee' AND  (  type = "appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_"  OR  type = "appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_"  ) FETCH type EXPLAIN FULL;
+select * from appointments where status = "pending"  AND service = 'services:1712489760657vbtujbvee' AND  type = "appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_"  OR  (status = "pending"  AND service = 'services:1712489760657vbtujbvee' AND type = "appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_"  ) FETCH type EXPLAIN FULL;
+select * from appointments where (  status = "pending"  )  AND service = 'services:1712489760657vbtujbvee' AND  (  type = "appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_"  OR  type = "appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_"  ) FETCH type EXPLAIN FULL;
+select * from appointments where status = "pending" AND (service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ]) FETCH type EXPLAIN FULL
+select * from appointments where status = "pending" AND (service = services:1712489760657vbtujbvee AND type IN [appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_, appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_ ]) EXPLAIN FULL
+select * from appointments where (  status = "pending"  )  AND service = 'services:1712489760657vbtujbvee' AND  (  type = "appointmentTypes:MTY3MDk2MTE4NDk4MTQyNzY_"  OR  type = "appointmentTypes:MTY3MDk2MTA4NTI4NjI1NjY_"  ) EXPLAIN FULL;
+count(select * from appointments);

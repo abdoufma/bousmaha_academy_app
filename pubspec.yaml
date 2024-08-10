@@ -1,0 +1,68 @@
+name: bousmaha_academy
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  shared_preferences: ^2.2.3
+  sqflite: ^2.3.3
+  firebase_core: ^2.30.0
+  connectivity_plus: ^5.0.2
+  firebase_messaging: ^14.8.2
+  webview_flutter: ^4.7.0
+  file_picker: ^8.0.2
+  http: ^1.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-thin.ttf
+          weight: 400
+
+
+flutter_launcher_icons:
+  image_path: "assets/launcher.png"
+  android: true
+  ios: true
+
+
+flutter_native_splash:
+  color: "#ffffff"
+  #background_image: "assets/background.png"
+  android_12:
+    image: assets/splash.png
+    # Splash screen background color.
+    color: "#ffffff"
